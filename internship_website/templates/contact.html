@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="signup-section" id="signup">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                <h2 class="text-white mb-4 text-uppercase fw-bold">Contact Me</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        {% if success %}
+                        <div class="alert alert-success text-center" role="alert">
+                            Your message has been sent successfully. Thank you for reaching out!
+                        </div>
+                        {% endif %}
+                        <div class="form-section-minimal">
+                            <form id="contactForm" name="sentMessage" novalidate="novalidate" method="POST">
+                                {% csrf_token %}
+                                
+                                {% if form.non_field_errors %}
+                                <div class="alert alert-danger" raise="alert">
+                                    {{ form.non_field_errors }}
+                                </div>
+                                {% endif %}
+
+                                {% for field in form %}
+                                <div class="mb-4">
+                                    {{ field }}
+                                    {% for error in field.errors %}
+                                    <p class="help-block text-danger minimal-help">{{error}}</p>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                                <div class="text-center">
+                                    <button class="btn btn-primary btn-minimal text-white" id="sendMessageButton" type="submit">
+                                        Send
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <p id="welcomeText" class="text-white mb-4 display-1 typing-text"></p>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                    This website showcases the projects I worked on during my internship. 
+                    To explore faster, you can click the button below.
+                </h2>
+                <a class="btn btn-primary" href="#about">Get Started</a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-white mb-4">Here are Some Technologies I Work With</h2>
+                <p class="text-white-50">
+                Throughout my internship, I work with a wide range of technologies across machine learning, backend 
+                development, and frontend development.  Here are some technologies I use in my daily tasks.
+                </p>
+            </div>
+        </div>
+        <div class="tech-slider-wrapper">
+            <div class="tech-slider mb-4" id="techSlider">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="tech-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="tech-icon">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="projects-section bg-light" id="projects">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+            <div class="col-xl-8 col-lg-7">
+                <div class="slider-wrapper-2">
+                    <div class="slider-track">
+                        <img class="slider-image" src="{% static 'theme/assets/img/bg-masthead.jpg' %}">
+                        <img class="slider-image" src="{% static 'theme/assets/img/demo-image-01_.jpg' %}">
+                        <img class="slider-image" src="{% static 'theme/assets/img/demo-image-02.jpg' %}">
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="featured-text text-center">
+                    <h2 class="text-black fw-bold mb-lg-5">Let's Start <span style="color: #64a19d;">Our Journey!</span></h2>
+                    <p class="text-black-50 mb-0">
+                        The images 
+                        <span class="image-position-text" style="font-weight: bold; color: black;"></span> 
+                        summarize various documentation from the internship activities, starting from project development to meetings with several clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+            <div class="col-lg-6">
+                <img class="img-fluid" src="{% static 'theme/assets/img/demo-image-01_.jpg' %}" alt="..." />
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-white">Misty</h4>
+                            <p class="mb-0 text-white-50">
+                                An example of where you can put an image of a project, or anything else, along with a description.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-0 justify-content-center">
+            <div class="col-lg-6">
+                <img class="img-fluid" src="{% static 'theme/assets/img/demo-image-02.jpg' %}" alt="..." />
+            </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-right">
+                            <h4 class="text-white">Mountains</h4>
+                            <p class="mb-0 text-white-50">
+                                Another example of a project with its respective description. These sections work well responsively as well!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

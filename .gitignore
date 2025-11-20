@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+db.sqlite3.bak
+db.sqlite3*
+docker-command.txt
+.python-version
+
+# virtual environment directories
+.venv/
+venv/
+.idea/
+.vscode/
+staticfiles/ 

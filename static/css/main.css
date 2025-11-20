@@ -1,0 +1,232 @@
+/* Minimalist Form Styles */
+.form-section-minimal {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.form-section-minimal input,
+.form-section-minimal textarea,
+.form-section-minimal select {
+    width: 100%;
+    padding: 10px 0;
+    border: none !important;
+    border-bottom: 2px solid #dcdcdc !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-size: 15px;
+    transition: 0.25s ease;
+    box-shadow: none !important;
+}
+
+.form-section-minimal input:focus,
+.form-section-minimal textarea:focus,
+.form-section-minimal select:focus {
+    border-bottom: 2px solid #64a19d !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-section-minimal input::placeholder,
+.form-section-minimal textarea::placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.form-section-minimal label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.minimal-help {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #e74c3c;
+    font-style: italic;
+}
+
+.btn-minimal,
+.form-section-minimal button {
+    padding: 10px 26px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: none !important;
+    background: #64a19d !important;
+    color: #fff !important;
+    transition: 0.25s !important;
+    min-width: 150px;
+}
+
+.btn-minimal:hover,
+.form-section-minimal button:hover {
+    background: #64a19d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Typing Text Animation */
+.typing-text {
+    letter-spacing: 0.25em;
+    font-weight: 700;
+}
+
+.typing-text::after {
+    content: "|";
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+    color: #fff;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Tech Slider */
+.tech-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
+}
+
+.tech-slider {
+    display: flex;
+    gap: 60px;
+    will-change: transform;
+}
+
+.tech-icon {
+    width: 65px; 
+    height: 65px;
+    opacity: 0.4;
+    transition: opacity .4s; 
+}
+
+.tech-icon.visible {
+    opacity: 1;    
+}
+
+/* Image Slider */
+.slider-wrapper-2 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.slider-wrapper-2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; 
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55),  
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.12),
+        rgba(0, 0, 0, 0.00)
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 5; 
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background: white;
+}
+
+.image-position-text::after {
+    content: "shown above";
+}
+
+@media (min-width: 992px) {
+    .image-position-text::after {
+        content: "shown beside";
+    }
+}
+
+/* Error Form */
+.minimal-help {
+    margin-top: 4px;
+    font-size: 0.8rem;          
+    color: #dc3545;             
+    font-style: normal;         
+}
+
+.help-block {
+    margin: 0;
+    padding: 0;
+}
+
+.text-danger.minimal-help {
+    color: #e55353;
+}
+
+/* Login & Logout Hover */
+.nav-login-link,
+.nav-logout-link {
+    color: #64a19d;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-login-link:hover,
+.nav-logout-link:hover {
+    color: #7ab9b5;
+}
+
+
+
+
+
