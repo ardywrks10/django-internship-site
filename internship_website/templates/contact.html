@@ -9,7 +9,7 @@
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                <h2 class="text-white mb-4 text-uppercase fw-bold">Contact Me</h2>
+                <h2 class="text-white mb-4 fw-bold">Contact Me</h2>
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         {% if success %}
@@ -18,15 +18,13 @@
                         </div>
                         {% endif %}
                         <div class="form-section-minimal">
-                            <form id="contactForm" name="sentMessage" novalidate="novalidate" method="POST">
+                            <form name="sentMessage" novalidate="novalidate" method="POST">
                                 {% csrf_token %}
-                                
                                 {% if form.non_field_errors %}
                                 <div class="alert alert-danger" raise="alert">
                                     {{ form.non_field_errors }}
                                 </div>
                                 {% endif %}
-
                                 {% for field in form %}
                                 <div class="mb-4">
                                     {{ field }}

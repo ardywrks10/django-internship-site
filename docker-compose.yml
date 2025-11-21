@@ -16,7 +16,7 @@ services:
   website:
     image: internship-website:latest  
     command: python manage.py runserver 0.0.0.0:8000
-    # volumes: *service-volumes
+    volumes: *service-volumes
     environment: *app-variables
     depends_on:
       - db_migrate
@@ -26,7 +26,7 @@ services:
   db_migrate:
     image: internship-website:latest
     command: python manage.py migrate 
-    # volumes: *service-volumes
+    volumes: *service-volumes
     environment: *app-variables
     depends_on:
       - postgres
