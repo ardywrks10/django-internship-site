@@ -11,6 +11,12 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
+CSRF_TRUSTED_ORIGINS = []
+csrf_origins = os.environ.get("CSRF_TRUSTED_ORIGINS")
+if csrf_origins:
+    CSRF_TRUSTED_ORIGINS = csrf_origins.split(",")
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
