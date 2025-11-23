@@ -4,7 +4,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<header class="masthead">
+<header class="headers">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
             <div class="text-center">
@@ -49,7 +49,7 @@
     </div>
 </section>
 
-<section class="projects-section bg-light" id="projects">
+<section class="projects-section bg-white" id="projects">
     <div class="container px-4 px-lg-5">
         <!-- Slider row -->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
@@ -78,7 +78,7 @@
         </div>
     </div>
 </section>
-<section class="projects-section bg-white" id="blogs">
+<section class="projects-section bg-light" id="blogs">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 text-center">
             <div class="mb-4">
@@ -89,8 +89,9 @@
                 </p>
             </div>
         </div>
+
         <div class="row gx-4 gx-lg-5">
-            {% for post in blog_posts %}
+            {% for post in page_obj %}
             <div class="col-lg-4 col-md-6 col-12 mb-4">
                 <article class="blog-card">
                     <div class="blog-image-wrapper">
@@ -114,7 +115,93 @@
                     </div>
                 </article>
             </div>
+            {% empty %}
+            <p class="text-center text-muted">No blog posts available yet.</p>
             {% endfor %}
+        </div>
+
+        {# PAGINATION #}
+        {% if page_obj.paginator.num_pages > 1 %}
+        <div class="blog-pagination text-center mt-3">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}#blogs" class="page-pill">
+                    &laquo; Prev
+                </a>
+            {% endif %}
+
+            {# tampilkan hanya sekitar halaman aktif: current-1, current, current+1 #}
+            {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                    <span class="page-pill active">{{ num }}</span>
+                {% elif num >= page_obj.number|add:"-1" and num <= page_obj.number|add:"1" %}
+                    <a href="?page={{ num }}#blogs" class="page-pill">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}#blogs" class="page-pill">
+                    Next &raquo;
+                </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+<section class="contact-section" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mb-4 fw-bold">
+                    Company <span style="color: #64a19d;">Location</span>
+                </h2>
+                <p class="text-white-50 mb-0">
+                    This is where I spent my internship, a place where ideas grew into real projects. 
+                    The address and office hours are shown beside.
+                </p>
+            </div>
+        </div>
+
+        <div class="row gx-4 gx-lg-5 align-items-stretch">
+            <div class="col-xl-4 mb-4 mb-xl-0">
+                <div class="contact-item-wrapper-minimal h-100">
+                    <div class="contact-item-minimal">
+                        <div class="contact-icon-minimal">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-content-minimal">
+                            <h4 class="mb-1 text-black fw-bold">Address</h4>
+                            <p class="mb-1 text-black-50">
+                                Jl. Danau Tempe No.21A, Sidakarya, Denpasar Selatan
+                            </p>
+                            <p class="mb-0 text-black-50">
+                                Kota Denpasar, Bali
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-minimal">
+                        <div class="contact-icon-minimal">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="contact-content-minimal">
+                            <h4 class="mb-1 text-black fw-bold">Schedule</h4>
+                            <p class="mb-1 text-black-50">9 Hours / 6 Days Open</p>
+                            <p class="mb-0 text-black-50">Office time: 8:30 AM – 5:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8">
+                <div class="contact-map-wrapper">
+                    <iframe
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Jl.+Danau+Tempe+No.21A,+Sidakarya,+Denpasar+Selatan,+Kota+Denpasar,+Bali+80224&output=embed&t=k"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
         </div>
     </div>
 </section>

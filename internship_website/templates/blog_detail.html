@@ -13,22 +13,42 @@
                             <img class="blog-author-thumb" src="{% static post.author_image %}" alt="{{ post.author_name }}">
                             <span>{{ post.tag }}</span>
                         </div>
+
+                        {# time di bawah author/tag #}
+                        <div class="text-black
+                         blog-time-badge mt-2">
+                            {{ post.time }}
+                        </div>
                     </header>
 
                     <div class="mb-4">
                         <img src="{% static post.image %}" alt="{{ post.title }}" class="img-fluid rounded shadow-sm">
                     </div>
 
-                    <div class="blog-detail-body text-muted">
-                        {# content bisa multi-paragraf; untuk simple boleh langsung pakai <p> #}
-                        <p style="white-space: pre-line;">
-                            {{ post.content }}
+                    <div class="blog-detail-body text-black">
+                        <p style="white-space: pre-line; text-align: justify;">
+                            {{ post.content|safe }}
                         </p>
                     </div>
-
                     <div class="mt-4">
-                        <a href="{% url 'public:index' %}#blogs" class="btn btn-outline-primary btn-sm">
-                            ← Back to Latest Blog
+                        <a href="{% url 'public:index' %}#blogs" style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 4px;
+                            padding: 5px 12px;
+                            font-size: 0.8rem;
+                            font-weight: 500;
+                            border-radius: 6px;
+                            border: 1px solid #64a19d;
+                            background: #64a19d;
+                            color: white;
+                            text-decoration: none;
+                            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+                        "
+                        onmouseover="this.style.background='white'; this.style.color='#64a19d'; this.style.borderColor='#64a19d'; this.style.transform='translateY(-1px)';"
+                        onmouseout="this.style.background='#64a19d'; this.style.color='white'; this.style.borderColor='#64a19d'; this.style.transform='translateY(0)';"
+                        >
+                            ← Latest Blog
                         </a>
                     </div>
                 </article>

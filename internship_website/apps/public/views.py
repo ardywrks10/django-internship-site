@@ -2,32 +2,43 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponse
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 class AboutView(LoginRequiredMixin, TemplateView):
     template_name = "about.html"
 
 BLOG_POSTS = [
     {
-        "slug": "design-driven-team",
-        "image": "theme/assets/img/blog/1.jpg",
-        "author_name": "Tim Norton",
+        "slug": "penerjunan-magang",
+        "image": "theme/assets/img/blog/1.jpeg",
+        "author_name": "Kusuma",
         "author_image": "theme/assets/img/blog/b6.jpg",
-        "tag": "BY TIM NORTON",
-        "title": "Make your team a Design driven company",
+        "tag": "By Kusuma",
+        "title": "Penerjunan Magang di PT. Dimata Sora Jayate",
         "description": (
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
             "Lorem Ipsum has been the industry's standard."
         ),
+        "time": "Agustus 04, 2025",
         "content": (
-            "Ini nanti bisa kamu isi dengan versi panjang artikelnya. "
-            "Bisa beberapa paragraf yang menjelaskan pengalaman magang, "
-            "apa yang kamu kerjakan, tantangan, dan lesson learned.\n\n"
-            "Kamu bisa mulai dengan: During my internship, I worked on ... "
+            "Penerjunan mahasiswa magang Program Studi Ilmu Komputer dilaksanakan "
+            "serentak pada 4 Agustus 2025. Enam mahasiswa yang ditempatkan di PT. "
+            "Dimata Sora Jayate terbagi ke dalam dua divisi, yaitu <span style='color: black; font-weight: bold;'>Machine Learning (ML)</span> "
+            "dan <span style='color: black; font-weight: bold;'>DevOps</span>. Empat mahasiswa tergabung di divisi ML, sementara dua lainnya "
+            "di divisi DevOps. Pada hari pertama magang, mentor memberikan "
+            "arahan yang terstruktur serta memastikan setiap mahasiswa mendapatkan proyek "
+            "yang sejalan dengan konsentrasi masing-masing.\n\n"
+
+            "Perusahaan menyediakan fasilitas belajar yang memadai dan lingkungan yang "
+            "mendukung pengembangan kompetensi mahasiswa melalui keterlibatan langsung "
+            "dalam proyek industri. Mentor secara berkala memantau perkembangan proyek "
+            "yang dikerjakan mahasiswa, sekaligus memberikan arahan apabila terdapat "
+            "kendala dalam proses pengerjaan."
         ),
     },
     {
-        "slug": "new-web-framework",
-        "image": "theme/assets/img/blog/2.jpg",
+        "slug": "hut-dimata",
+        "image": "theme/assets/img/blog/2.jpeg",
         "author_name": "Tim Norton",
         "author_image": "theme/assets/img/blog/b6.jpg",
         "tag": "BY TIM NORTON",
@@ -36,6 +47,7 @@ BLOG_POSTS = [
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
             "Lorem Ipsum has been the industry's standard."
         ),
+        "time": "March 20, 2023",
         "content": (
             "Di artikel ini kamu bisa cerita tentang framework yang kamu pakai "
             "waktu magang, misalnya Django, FastAPI, Next.js, dsb, dan bagaimana "
@@ -43,8 +55,8 @@ BLOG_POSTS = [
         ),
     },
     {
-        "slug": "improve-user-retention",
-        "image": "theme/assets/img/blog/3.jpg",
+        "slug": "optical-character-recognition",
+        "image": "theme/assets/img/blog/3.jpeg",
         "author_name": "Tim Norton",
         "author_image": "theme/assets/img/blog/b6.jpg",
         "tag": "BY TIM NORTON",
@@ -53,6 +65,24 @@ BLOG_POSTS = [
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
             "Lorem Ipsum has been the industry's standard."
         ),
+        "time": "March 25, 2023",
+        "content": (
+            "Ini bisa kamu kaitkan ke fitur-fitur yang kamu buat di project magang "
+            "yang berhubungan dengan UX, notifikasi, dashboard, dsb."
+        ),
+    },
+    {
+        "slug": "kunjungan-dospem-1",
+        "image": "theme/assets/img/blog/4.jpg",
+        "author_name": "Tim Norton",
+        "author_image": "theme/assets/img/blog/b6.jpg",
+        "tag": "BY TIM NORTON",
+        "title": "5 ways to improve user retention for your startup",
+        "description": (
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+            "Lorem Ipsum has been the industry's standard."
+        ),
+        "time": "March 30, 2023",
         "content": (
             "Ini bisa kamu kaitkan ke fitur-fitur yang kamu buat di project magang "
             "yang berhubungan dengan UX, notifikasi, dashboard, dsb."
@@ -61,8 +91,13 @@ BLOG_POSTS = [
 ]
 
 def index(request: HttpRequest) -> HttpResponse:
-    context = {
-        "blog_posts": BLOG_POSTS,
+    blog_posts  = BLOG_POSTS
+    paginator   = Paginator(blog_posts, 3)
+    page_number = request.GET.get("page")
+    page_obj    = paginator.get_page(page_number)
+    context     = {
+        "page_obj": page_obj,
+        "blog_posts": page_obj,
     }
     return render(request, "index.html", context)
 
