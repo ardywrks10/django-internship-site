@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Home{% endblock %}
-
 {% block content %}
+<!--HEADER SECTION-->
 <header class="headers">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
@@ -18,7 +17,7 @@
         </div>
     </div>
 </header>
-
+<!--TECH LIST-->
 <section class="about-section text-center" id="about">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -48,10 +47,9 @@
         </div>
     </div>
 </section>
-
+<!--IMAGE SLIDER-->
 <section class="projects-section bg-white" id="projects">
     <div class="container px-4 px-lg-5">
-        <!-- Slider row -->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
             <div class="col-xl-8 col-lg-7">
                 <div class="slider-wrapper-2">
@@ -78,6 +76,7 @@
         </div>
     </div>
 </section>
+<!--BLOG SECTION-->
 <section class="projects-section bg-light" id="blogs">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 text-center">
@@ -119,7 +118,6 @@
             <p class="text-center text-muted">No blog posts available yet.</p>
             {% endfor %}
         </div>
-
         {# PAGINATION #}
         {% if page_obj.paginator.num_pages > 1 %}
         <div class="blog-pagination text-center mt-3">
@@ -128,8 +126,6 @@
                     &laquo; Prev
                 </a>
             {% endif %}
-
-            {# tampilkan hanya sekitar halaman aktif: current-1, current, current+1 #}
             {% for num in page_obj.paginator.page_range %}
                 {% if num == page_obj.number %}
                     <span class="page-pill active">{{ num }}</span>
@@ -137,7 +133,6 @@
                     <a href="?page={{ num }}#blogs" class="page-pill">{{ num }}</a>
                 {% endif %}
             {% endfor %}
-
             {% if page_obj.has_next %}
                 <a href="?page={{ page_obj.next_page_number }}#blogs" class="page-pill">
                     Next &raquo;
@@ -147,6 +142,7 @@
         {% endif %}
     </div>
 </section>
+<!--COMPANY LOCATION-->
 <section class="contact-section" id="contact">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -160,7 +156,6 @@
                 </p>
             </div>
         </div>
-
         <div class="row gx-4 gx-lg-5 align-items-stretch">
             <div class="col-xl-4 mb-4 mb-xl-0">
                 <div class="contact-item-wrapper-minimal h-100">
@@ -178,7 +173,6 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="contact-item-minimal">
                         <div class="contact-icon-minimal">
                             <i class="fa-solid fa-clock"></i>
@@ -191,7 +185,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-xl-8">
                 <div class="contact-map-wrapper">
                     <iframe

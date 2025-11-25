@@ -16,8 +16,8 @@ BLOG_POSTS = [
         "tag": "By Kusuma",
         "title": "Penerjunan Magang di PT. Dimata Sora Jayate",
         "description": (
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-            "Lorem Ipsum has been the industry's standard."
+            "Enam mahasiswa magang dari Program Studi Ilmu Komputer di "
+            "PT. Dimata Sora Jayate dibagi ke dalam dua divisi, yakni Machine Learning dan DevOps."
         ),
         "time": "Agustus 04, 2025",
         "content": (
@@ -39,19 +39,32 @@ BLOG_POSTS = [
     {
         "slug": "hut-dimata",
         "image": "theme/assets/img/blog/2.jpeg",
-        "author_name": "Tim Norton",
+        "author_name": "Kusuma",
         "author_image": "theme/assets/img/blog/b6.jpg",
-        "tag": "BY TIM NORTON",
-        "title": "The newest web framework that changed the world",
+        "tag": "By Kusuma",
+        "title": "HUT ke-23 PT. Dimata Sora Jayate",
         "description": (
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-            "Lorem Ipsum has been the industry's standard."
+            "Dalam rangka HUT ke-23, PT Dimata Sora Jayate mengangkat tema"
+            " \"Dimata Bertumbuh & Kuat dalam Semangat Tri Hita Karana\"" 
         ),
-        "time": "March 20, 2023",
+        "time": "Agustus 30, 2025",
         "content": (
-            "Di artikel ini kamu bisa cerita tentang framework yang kamu pakai "
-            "waktu magang, misalnya Django, FastAPI, Next.js, dsb, dan bagaimana "
-            "framework itu membantu menyelesaikan project."
+            "Pada Sabtu, 30 Agustus 2025, PT. Dimata Sora Jayate merayakan hari jadinya yang ke-23 "
+            "dengan penuh rasa syukur ke hadapan Tuhan Yang Maha Esa. Mengangkat tema "
+            "\"Dimata Bertumbuh & Kuat dalam Semangat Tri Hita Karana\", perayaan tahun ini tidak hanya "
+            "menjadi momen ulang tahun perusahaan, tetapi juga refleksi bagaimana Dimata terus bertumbuh "
+            "selaras dengan harmoni antara manusia, alam, dan Sang Pencipta. Rangkaian acara dimulai pada "
+            "pukul 08.30 WITA, di mana seluruh pegawai, staf, dan mahasiswa magang berkumpul di Workshop (WS) "
+            "sebelum berangkat bersama menuju Pura Sidakarya untuk melakukan persembahyangan dengan busana adat "
+            "Bali lengkap.\n\n"
+            "Setelah persembahyangan selesai, rangkaian acara dilanjutkan dengan coffee break di Dimata Workshop "
+            "sekitar pukul 09.50–10.15 WITA, yang sekaligus menjadi momen santai dan sesi penyampaian arah serta "
+            "rencana pertumbuhan Dimata ke depannya. Dalam kegiatan ini, seluruh peserta dihimbau untuk hadir tepat "
+            "waktu, menggunakan busana sesuai agenda, menjaga kesakralan area Pura (terutama dalam mengambil foto), "
+            "serta membawa tumbler pribadi guna mengurangi penggunaan plastik sekali pakai. Untuk memastikan kebutuhan "
+            "konsumsi yang disediakan, setiap tim juga diminta melakukan konfirmasi kehadiran atau menyampaikan apabila "
+            "berhalangan hadir melalui WhatsApp. Melalui rangkaian sederhana namun penuh makna ini, Dimata berharap "
+            "semangat Tri Hita Karana benar-benar tercermin dalam cara perusahaan bertumbuh dan bekerja setiap hari."
         ),
     },
     {
