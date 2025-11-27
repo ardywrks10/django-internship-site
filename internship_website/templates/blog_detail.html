@@ -5,7 +5,7 @@
 <section class="projects-section bg-white">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-8 mt-10">
                 <article class="blog-detail">
                     <header class="mb-4 text-center">
                         <h1 class="fw-bold mb-3">{{ post.title }}</h1>
@@ -13,19 +13,15 @@
                             <img class="blog-author-thumb" src="{% static post.author_image %}" alt="{{ post.author_name }}">
                             <span>{{ post.tag }}</span>
                         </div>
-
-                        {# time di bawah author/tag #}
                         <div class="text-black
                          blog-time-badge mt-2">
                             {{ post.time }}
                         </div>
                     </header>
-
                     <div class="mb-4">
                         <img src="{% static post.image %}" alt="{{ post.title }}" class="img-fluid rounded shadow-sm">
                     </div>
-
-                    <div class="blog-detail-body text-black">
+                    <div class="blog-detail-body text-black break-content">
                         <p style="white-space: pre-line; text-align: justify;">
                             {{ post.content|safe }}
                         </p>

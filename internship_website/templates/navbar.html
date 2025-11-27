@@ -8,21 +8,29 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#page-top">Kusuma</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" 
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == index_url %}active{% endif %}" href="{{ index_url }}">Home</a>
+                    <a class="nav-link {% if request.path == index_url %}active{% endif %}"
+                       href="{{ index_url }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a>
+                    <a class="nav-link {% if request.path == about_url %}active{% endif %}"
+                       href="{{ about_url }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">Contact</a>
+                    <a class="nav-link {% if request.path == contact_url %}active{% endif %}"
+                       href="{{ contact_url }}">Contact</a>
                 </li>
-                <li class="nav-item">
+
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         {% if request.path == profile_url %}
@@ -32,7 +40,8 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit();">
+                        <a href="#" class="nav-link"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span class="fw-bold nav-logout-link">Logout</span>
                         </a>
                     </li>
@@ -43,11 +52,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ login_url }}">
                             <span class="fw-bold nav-login-link">Login</span>
-                            </span>
                         </a>
                     </li>
                 {% endif %}
-                </li>
             </ul>
         </div>
     </div>

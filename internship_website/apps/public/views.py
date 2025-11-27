@@ -23,8 +23,8 @@ BLOG_POSTS = [
         "content": (
             "Penerjunan mahasiswa magang Program Studi Ilmu Komputer dilaksanakan "
             "serentak pada 4 Agustus 2025. Enam mahasiswa yang ditempatkan di PT. "
-            "Dimata Sora Jayate terbagi ke dalam dua divisi, yaitu <span style='color: black; font-weight: bold;'>Machine Learning (ML)</span> "
-            "dan <span style='color: black; font-weight: bold;'>DevOps</span>. Empat mahasiswa tergabung di divisi ML, sementara dua lainnya "
+            "Dimata Sora Jayate terbagi ke dalam dua divisi, yaitu <b>Machine Learning (ML)</b> "
+            "dan <b>DevOps</b>. Empat mahasiswa tergabung di divisi ML, sementara dua lainnya "
             "di divisi DevOps. Pada hari pertama magang, mentor memberikan "
             "arahan yang terstruktur serta memastikan setiap mahasiswa mendapatkan proyek "
             "yang sejalan dengan konsentrasi masing-masing.\n\n"
@@ -70,18 +70,95 @@ BLOG_POSTS = [
     {
         "slug": "optical-character-recognition",
         "image": "theme/assets/img/blog/3.jpeg",
-        "author_name": "Tim Norton",
+        "author_name": "Kusuma",
         "author_image": "theme/assets/img/blog/b6.jpg",
-        "tag": "BY TIM NORTON",
-        "title": "5 ways to improve user retention for your startup",
+        "tag": "BY KUSUMA",
+        "title": "Mengenal Optical Character Recognition (OCR)",
+        "description": (
+            "Alur kerja Optical Character Recognition (OCR) mencakup beberapa tahapan seperti "
+            "pre-processing gambar, localization, segmentation, hingga tahap recognition."   
+        ),
+        "time": "March 25, 2023",
+        "content": (
+            "Pada awal magang, saya terlibat langsung dalam proyek yang memanfaatkan OCR "
+            "(Optical Character Recognition) untuk mengotomatisasi pembacaan dokumen, sehingga penting "
+            "untuk memahami OCR secara fundamental. Secara teknis, alur kerja OCR dapat dijelaskan sebagai "
+            "empat langkah yang runut atau berurutan. Langkah pertama adalah <b>image acquisition & pre-processing</b> "
+            "(pra-pemrosesan), sistem menerima citra atau gambar teks dari kamera, lalu membersihkan "
+            "(cleaning) gambar dengan beberapa metode bersesuaian seperti binarisasi agar teks menjadi "
+            "hitam-putih jelas, mengurangi noise, mengubahnya ke grayscale, atau deskew (meluruskan "
+            "kemiringan). Langkah kedua yaitu <b>localization</b>, sistem mencari bagian-bagian pada gambar yang "
+            "mengandung teks, sehingga di akhir diperoleh blok-blok teks lengkap dengan koordinat (bounding "
+            "box). "
+            "Ketiga, yaitu <b>segmentation</b>, di mana hasil dari proses localization dipisah terlebih dahulu menjadi "
+            "baris teks, kemudian dipecah lagi menjadi kata, dan akhirnya menjadi karakter tunggal dengan "
+            "bantuan jarak antar piksel. Setelah setiap karakter terisolasi, masuk ke tahap keempat, yaitu "
+            "<b>recognition</b>. Pada tahap ini, citra karakter dikonversi menjadi huruf atau angka melalui proses "
+            "pendekatan klasik seperti template matching yang dipadukan dengan algoritma klasifikasi seperti "
+            "SVM, K-NN, atau MLP, maupun dengan pendekatan yang lebih modern berbasis deep learning, "
+            "misalnya menggunakan CNN atau dengan beberapa arsitektur tertentu.\n\n"
+            "Secara umum untuk proses implementasi, terdapat tiga kelompok utama toolset OCR. Pertama "
+            "adalah proprietary yang berarti software berlisensi dan berbayar seperti ABBYY FineReader atau "
+            "Adobe Acrobat. Kedua adalah toolset opensource seperti <b>Tesseract</b>, "
+            "<b>EasyOCR</b>, dan <b>PaddleOCR</b> yang "
+            "kode sumber atau source codenya terbuka sehingga bisa dikustomisasi, diintegrasikan lewat "
+            "command line atau API, dan diretrain sesuai kebutuhan. Ketiga adalah online services yaitu layanan "
+            "OCR berbasis web seperti Free-Online OCR, OnlineOCR, di mana pengguna cukup mengunggah "
+            "dokumen tanpa instalasi tambahan.\n\n"
+            "Dalam proyek magang yang akan dikerjakan, toolset OCR open source akan digunakan karena lebih "
+            "fleksibel dan selaras dengan kebutuhan pengembangan di lingkungan R&D. Melalui toolset "
+            "saya dapat dengan mudah mengintegrasikan OCR secara langsung ke dalam pipeline aplikasi "
+            "perusahaan.\n\n"
+            "<b style='font-size: 20px;'>Referensi</b>"
+            "<ul>"
+            "<li><a style='color: black; text-decoration: underline;' href='https://journalskuwait.org/kjs/index.php/KJS/article/view/9589' target='_blank' rel='noopener noreferrer'>https://journalskuwait.org/kjs/index.php/KJS/article/view/9589</a></li>"
+            "<li><a style='color: black; text-decoration: underline;' href='https://www.mdpi.com/2079-9292/12/3/754' target='_blank' rel='noopener noreferrer'>https://www.mdpi.com/2079-9292/12/3/754</a></li>"
+            "<li><a style='color: black; text-decoration: underline;' href='https://medium.com/@eldokarim.rk/fundamentals-of-optical-character-recognition-ocr-8b89dd5f8714' target='_blank' rel='noopener noreferrer'>https://medium.com/@eldokarim.rk/fundamentals-of-optical-character-recognition-ocr-8b89dd5f8714</a></li>"
+            "</ul>"
+        ),
+    },
+    {
+        "slug": "dbscan-kmeans-clustering",
+        "image": "theme/assets/img/blog/4.jpg",
+        "author_name": "Kusuma",
+        "author_image": "theme/assets/img/blog/b6.jpg",
+        "tag": "BY KUSUMA",
+        "title": "DBSCAN vs K-Means Clustering: Mana yang Lebih Unggul?",
         "description": (
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
             "Lorem Ipsum has been the industry's standard."
         ),
-        "time": "March 25, 2023",
+        "time": "March 30, 2023",
         "content": (
-            "Ini bisa kamu kaitkan ke fitur-fitur yang kamu buat di project magang "
-            "yang berhubungan dengan UX, notifikasi, dashboard, dsb."
+            "Dalam konteks pengolahan data, termasuk ketika ingin mengelompokan pola tertentu dari hasil "
+            "ekstraksi OCR, algoritma clustering berperan penting untuk membagi titik-titik data ke dalam kelompok "
+            "tertentu secara otomatis. Dua algoritma yang sering digunakan adalah <b>K-Means</b> dan <b>DBSCAN</b>, yang "
+            "secara teknis berbeda pada cara mendefinisikan cluster. K-Means adalah algoritma "
+            "centroid-based yang mengasumsikan jumlah cluster 𝑘 sudah ditentukan di awal, lalu secara iteratif "
+            "menginisialisasi centroid, meng-assign tiap titik ke centroid terdekat (biasanya dengan jarak "
+            "Euclidean), dan meng-update centroid sebagai rata-rata titik dalam cluster hingga konvergen. "
+            "Sebaliknya, DBSCAN adalah algoritma density-based yang tidak membutuhkan jumlah cluster di awal, "
+            "melainkan dua parameter utama ε (radius tetangga) dan MinPts (jumlah tetangga minimum). Sebuah "
+            "titik menjadi core point, jika di dalam radius setidaknya terdapat MinPts titik lain, kemudian cluster "
+            "(kelompok) dibentuk dengan memperluas titik-titik yang density-reachable, sementara titik yang di "
+            "luar cluster dianggap sebagai noise.\n\n"
+            "Berdasarkan dari cara kerja masing-masing algoritma, K-Means unggul ketika cluster "
+            "cenderung bulat atau terpisah dengan cukup jelas. Selain itu, fungsi objektifnya yaitu meminimalkan "
+            "jarak ke centroid mudah untuk dipahami. Namun kekurangannya, K-Means masih membutuhkan "
+            "metode tambahan seperti <b>Elbow Method</b> untuk menentukan jumlah cluster yang optimal "
+            "untuk data. "
+            "Di sisi lain, DBSCAN memiliki kelebihan utama yaitu tidak membutuhkan inisialisasi jumlah cluster di awal proses "
+            "dan mampu menemukan cluster dengan bentuk yang arbitrer, misalnya melengkung atau tidak "
+            "beraturan. Kekurangannya, DBSCAN cukup sensitif terhadap pemilihan epsilon dan MinPts, serta "
+            "membutuhkan waktu yang lebih lama apabila berhadapan dengan data berdimensi tinggi.\n\n"
+            "Kedua algoritma banyak dimanfaatkan untuk sistem rekomendasi seperti contoh pengelompokan "
+            "customer ataupun item berdasarkan kemiripan perilaku dan preferensi. Selain itu, kedua algoritma juga "
+            "dapat dipadukan dengan OCR untuk tugas spesifik seperti ekstraksi data tabel.\n\n"
+            "<b style='font-size: 20px;'>Referensi</b>"
+            "<ul>"
+            "<li><a style='color: black; text-decoration: underline;' href='https://e-journal.unair.ac.id/JISEBI/article/view/47770' target='_blank' rel='noopener noreferrer'>https://e-journal.unair.ac.id/JISEBI/article/view/47770</a></li>"
+            "<li><a style='color: black; text-decoration: underline;' href='https://www.neliti.com/publications/436923/analisis-pengelompokan-data-nilai-siswa-untuk-menentukan-siswa-berprestasi-mengg' target='_blank' rel='noopener noreferrer'>https://www.neliti.com/publications/436923/analisis-pengelompokan-data-nilai-siswa-untuk-menentukan-siswa-berprestasi-mengg</a></li>"
+            "</ul>"
         ),
     },
     {
@@ -102,7 +179,6 @@ BLOG_POSTS = [
         ),
     },
 ]
-
 def index(request: HttpRequest) -> HttpResponse:
     blog_posts  = BLOG_POSTS
     paginator   = Paginator(blog_posts, 3)

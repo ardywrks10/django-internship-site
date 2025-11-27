@@ -55,18 +55,19 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-white-rgb: 255, 255, 255;
   --bs-white-rgb: 255, 255, 255;
+  --bs-black-12: #121212;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-body-font-family: 'Space Mono', monospace;
-  --bs-font-monospace: 'Space Mono', monospace;
-  --heading-font-family: 'VT323', monospace;
+  --bs-body-font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --bs-font-monospace: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --heading-font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #000000;
+  --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -2772,7 +2773,7 @@ textarea.form-control-lg {
 .btn {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
-  --bs-btn-font-family: 'Space Mono', monospace;
+  --bs-btn-font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
@@ -5659,7 +5660,7 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-tooltip-arrow-height);
   margin: var(--bs-tooltip-margin);
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5769,7 +5770,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7761,6 +7762,10 @@ textarea.form-control-lg {
   margin-top: 3rem !important;
 }
 
+.mt-10 {
+  margin-top: 4rem !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }
@@ -8225,6 +8230,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-black-75 {
+  --bs-text-opacity: 1;
+  color: #121212 !important;
+}
+
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
@@ -8309,6 +8319,11 @@ textarea.form-control-lg {
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-black-12 {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-black-12), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {
@@ -11056,7 +11071,7 @@ body {
 .btn {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
@@ -11068,20 +11083,20 @@ body {
   width: 100%;
   height: auto;
   padding-top: 15rem;
-  background:radial-gradient(circle at top, rgba(100, 161, 157, 0.38), transparent 55%), linear-gradient(to bottom, #000000 0%, #000000 100%);
-  background-position: center;
+  background-color: #f9fafb;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
 }
 
 
+
 .headers h1, .headers .h1 {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(37, 37, 37, 0.99));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -11097,14 +11112,14 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background:radial-gradient(circle at top, rgba(100, 161, 157, 0.38), transparent 55%), linear-gradient(to bottom, #000000 0%, #000000 100%);
+  background-color: #f9fafb;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
 }
 .about-masthead  h1, .about-masthead  .h1 {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
@@ -11172,7 +11187,7 @@ body {
 
 .signup-section {
   padding: 10rem 0;
-  background:radial-gradient(circle at top, rgba(100, 161, 157, 0.38), transparent 55%), linear-gradient(to bottom, #000000 0%, #000000 100%);
+  background-color: #f9fafb;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11183,7 +11198,7 @@ body {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
   height: auto;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   border: 0;
@@ -11198,7 +11213,7 @@ body {
 }
 .contact-section .card h4, .contact-section .card .h4 {
   font-size: 0.8rem;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
 }

@@ -1,3 +1,111 @@
+/* NAVBAR CUSTOM – LIGHT GLASS MAX */
+#mainNav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 1030;
+
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(255, 255, 255, 0.55)
+    ) !important;
+
+  backdrop-filter: blur(22px) saturate(1.25);
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.55);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+#mainNav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.0)
+  );
+  opacity: 0.75;
+}
+
+#mainNav.navbar-shrink {
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 250, 252, 0.96)
+    ) !important;
+  border-bottom-color: rgba(148, 163, 184, 0.7);
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+#mainNav .navbar-brand,
+#mainNav .nav-link {
+  color: #020617 !important; /* hampir hitam */
+}
+
+#mainNav .nav-link:not(.active) {
+  color: #475569 !important; /* slate-600 */
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+  color: #64a19d !important;
+}
+
+#mainNav .nav-login-link,
+#mainNav .nav-logout-link {
+  letter-spacing: 0.04em;
+}
+
+#mainNav .navbar-toggler {
+  border-color: rgba(15, 23, 42, 0.18);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(241, 245, 249, 0.95)
+    );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.10);
+}
+
+/* Icon tetap gelap (default) */
+#mainNav .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Mobile dropdown – ikut glass */
+@media (max-width: 991.98px) {
+  #mainNav .navbar-collapse {
+    background:
+      linear-gradient(135deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(241, 245, 249, 0.96)
+      );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  }
+}
+
 /* Minimalist Form Styles */
 .form-section-minimal {
     background: rgba(255, 255, 255, 0.92);
@@ -82,7 +190,7 @@
     content: "|";
     margin-left: 5px;
     animation: blink 0.7s infinite;
-    color: #fff;
+    color: #000000;
 }
 
 @keyframes blink {
@@ -306,29 +414,32 @@
     margin-bottom: 0;
 }
 
-/* CONTACT SECTION – DARK VERSION */
+/* CONTACT SECTION – LIGHT VERSION */
 .contact-section {
     padding: 6rem 0 4rem;
-    background: #020617; /* mirip tailwind slate-950 */
+    background: #f9fafb; /* abu-abu sangat terang (mirip slate-50) */
 }
 
-/* wrapper info kiri */
+/* Wrapper card */
 .contact-item-wrapper-minimal {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
 
+/* Card item */
 .contact-item-minimal {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem 1.1rem;
     border-radius: 0.75rem;
-    background: rgba(255, 255, 255, 0.85);  
-    border: 1px solid rgba(148, 163, 184, 0.25); 
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(148, 163, 184, 0.35); /* slate-300-ish */
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05); /* halus */
 }
 
+/* Icon bulat */
 .contact-icon-minimal {
     flex: 0 0 40px;
     width: 40px;
@@ -343,29 +454,33 @@
 
 .contact-icon-minimal i {
     font-size: 1rem;
-    color: #ffffff;
+    color: #64a19d; /* icon pakai accent, bukan putih lagi */
 }
 
+/* Typography di dalam card */
 .contact-content-minimal h4 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
-    color: #fff; /* slate-200 */
+    color: #0f172a; /* slate-900 */
 }
 
 .contact-content-minimal p {
     font-size: 0.9rem;
     margin-bottom: 0.1rem;
+    color: #475569; /* slate-600 */
 }
 
+/* Map */
 .contact-map-wrapper {
     width: 100%;
-    aspect-ratio: 1 / 1;        
+    aspect-ratio: 1 / 1;
     min-height: 260px;
     max-height: 480px;
     border-radius: 0.75rem;
     overflow: hidden;
-    background: #fff; /* sama dengan background section */
-    border: 1px solid rgba(148, 163, 184, 0.35); /* slate-400 halus */
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
 }
 
 .contact-map-wrapper iframe {
@@ -375,6 +490,7 @@
     border: 0;
 }
 
+/* Mobile tweaks */
 @media (max-width: 576px) {
     .contact-item-minimal {
         padding: 0.9rem 1rem;
@@ -405,9 +521,9 @@
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     font-size: 0.85rem;
-    border: 1px solid #e5e7eb;          /* border abu tipis */
+    border: 1px solid #e5e7eb;          
     background: #ffffff;
-    color: #6b7280;                      /* abu teks */
+    color: #6b7280;                
     text-decoration: none;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
                 transform 0.15s ease;
@@ -476,4 +592,137 @@
 
 .blog-btn:active {
     transform: translateY(0);
+}
+
+/* SIGNUP STYLE */
+.signup-inline-link {
+    font-weight: 600;
+    color: #64a19d;
+    text-decoration: none;
+}
+
+.signup-inline-link:hover {
+    color: #7ab9b5;
+    text-decoration: underline;
+}
+
+/* PASSWORD EYE ICON */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .toggle-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9ca3af; /* abu-abu soft */
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+.password-wrapper .toggle-eye:hover {
+    color: #64a19d; /* warna teal */
+}
+
+/*PROFILE */
+.profile-card {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 2.25rem 1.75rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.profile-avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.profile-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    border: 2px solid rgba(100, 161, 157, 0.4);
+    background: #f9fafb;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.profile-username {
+    font-size: 0.9rem;
+}
+
+.profile-email {
+    font-size: 0.9rem;
+}
+
+.profile-bio {
+    font-size: 0.95rem;
+}
+
+.profile-link {
+    font-size: 0.9rem;
+    color: #64a19d;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+/* Persona pill */
+.profile-pill {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    background: rgba(100, 161, 157, 0.08);
+    color: #064e3b;
+    border: 1px solid rgba(100, 161, 157, 0.35);
+}
+
+/* Interest tags */
+.profile-interests {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+}
+
+.profile-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+/* Profile Section Spacing */
+.profile-section {
+    padding-top: 7rem; 
+}
+
+.profile-card {
+    margin-top: 4rem;
+}
+
+@media (max-width: 576px) {
+    .get-started {
+        margin-bottom: 3rem;
+    }
+}
+
+.break-content a {
+  color: black;
+  text-decoration: underline;
+  word-wrap: break-word;      
+  overflow-wrap: anywhere;
 }

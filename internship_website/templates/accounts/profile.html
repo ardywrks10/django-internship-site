@@ -1,34 +1,67 @@
 {% extends 'base.html' %}
-
 {% block title %}Profile{% endblock %}
-
 {% block content %}
-<h1>
-	{{ user.get_full_name }} (@{{user.username}})
-</h1>
+<section class="signup-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="profile-card text-center">
+                    {% with seed=user.username|default:user.email %}
+                        <div class="profile-avatar-wrapper">
+                            <img
+                                class="profile-avatar"
+                                src="https://api.dicebear.com/9.x/identicon/svg?seed={{ seed|urlencode }}"
+                                alt="{{ user.get_full_name|default:user.username }}"
+                            />
+                        </div>
+                    {% endwith %}
+                    <h2 class="profile-name">
+                        {{ user.get_full_name|default:user.username }}
+                    </h2>
+                    <p class="profile-username text-muted mb-2">
+                        @{{ user.username }}
+                    </p>
+                    <p class="profile-email text-muted mb-3">
+                        {{ user.email }}
+                    </p>
 
-{% with profile=user.profile %}
-	{% if profile %}
-		<h2>
-			{{ profile.persona|default:"" }}
-		</h2>
-		<div>
-			{{ profile.bio|default:"" }}
-		</div>
-		<div>
-			{% with website=profile.website|default:"" %}
-				<a href="{{website}}">{{ website }}</a>
-			{% endwith %}
-		</div>
-		</br>
-		<div>
-			Interest:
-			{% for interest in profile.interests.all %}
-			<span>
-				{{ interest.name }}{% if not forloop.last %}, {% endif %}
-			</span>
-			{% endfor %}
-		</div>
-	{% endif %}
-{% endwith %}
+                    {% with profile=user.profile %}
+                        {% if profile %}
+                            {% if profile.persona %}
+                                <div class="mb-2">
+                                    <span class="profile-pill">
+                                        {{ profile.persona.name }}
+                                    </span>
+                                </div>
+                            {% endif %}
+                            {% if profile.bio %}
+                                <p class="profile-bio text-muted mb-3">
+                                    {{ profile.bio }}
+                                </p>
+                            {% endif %}
+                            {% if profile.website %}
+                                <p class="mb-3">
+                                    <a href="{{ profile.website }}" class="profile-link" target="_blank" rel="noopener">
+                                        {{ profile.website }}
+                                    </a>
+                                </p>
+                            {% endif %}
+                            {% with interests_list=profile.interests.all %}
+                                {% if interests_list %}
+                                    <div class="profile-interests">
+                                        {% for interest in interests_list %}
+                                            <span class="profile-tag">
+                                                {{ interest.name }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

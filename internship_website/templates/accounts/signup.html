@@ -1,13 +1,16 @@
+{# internship_website/templates/accounts/signup.html #}
 {% extends 'base.html' %}
-{% block title %}Login{% endblock %}
+
+{% block title %}Sign Up{% endblock %}
+
 {% block content %}
-<section class="signup-section" id="login">
+<section class="signup-section" id="signup">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-10 col-lg-6 mx-auto text-center">
-                <h3 class="text-black-50 mb-4">Login</h3>
+                <h3 class="text-black-50 mb-4">Create an Account</h3>
                 <div class="form-section-minimal">
-                    <form method="post" class="login-form">
+                    <form method="post" class="signup-form">
                         {% csrf_token %}
                         {% if form.non_field_errors %}
                         <div class="alert alert-danger mb-3">
@@ -25,14 +28,14 @@
                         <div class="text-center">
                             <button type="submit"
                                     class="btn btn-primary btn-minimal text-white">
-                                Login
+                                Sign Up
                             </button>
                         </div>
                         <div class="text-center mt-3">
                             <span class="text-muted small">
-                                Don’t have an account?
-                                <a href="{% url 'accounts:signup' %}" class="signup-inline-link">
-                                    Sign up here
+                                Already have an account?
+                                <a href="{% url 'accounts:login' %}" class="signup-inline-link">
+                                    Login here
                                 </a>
                             </span>
                         </div>
