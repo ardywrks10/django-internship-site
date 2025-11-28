@@ -4,6 +4,9 @@ set -e
 echo ">> Running migrations..."
 python manage.py migrate
 
+echo ">> Creating superuser"
+python manage.py createsuperuser --noinput || echo ">> Superuser already exists or could not be created. Skipping."
+
 echo ">> Collecting static files..."
 python manage.py collectstatic --noinput
 
