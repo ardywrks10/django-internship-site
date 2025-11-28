@@ -11,11 +11,11 @@
                         <h1 class="fw-bold mb-3">{{ post.title }}</h1>
                         <div class="d-flex justify-content-center align-items-center gap-2 text-black small">
                             <img class="blog-author-thumb" src="{% static post.author_image %}" alt="{{ post.author_name }}">
-                            <span>{{ post.tag }}</span>
+                            <span class="fw-bold">{{ post.tag }}</span>
                         </div>
                         <div class="text-black
                          blog-time-badge mt-2">
-                            {{ post.time }}
+                            {{ post.published_at|date:"F j, Y" }}
                         </div>
                     </header>
                     <div class="mb-4">

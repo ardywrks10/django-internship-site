@@ -99,7 +99,7 @@
                         </a>
                         <div class="blog-meta">
                             <img class="blog-author-thumb" src="{% static post.author_image %}" alt="{{ post.author_name }}" />
-                            <span>{{ post.tag }}</span>
+                            <span class="text-capitalize">{{ post.tag }}</span>
                         </div>
                     </div>
                     <div class="blog-content">
@@ -118,7 +118,6 @@
             <p class="text-center text-muted">No blog posts available yet.</p>
             {% endfor %}
         </div>
-        {# PAGINATION #}
         {% if page_obj.paginator.num_pages > 1 %}
         <div class="blog-pagination text-center mt-3">
             {% if page_obj.has_previous %}
