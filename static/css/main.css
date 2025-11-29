@@ -726,3 +726,62 @@
   word-wrap: break-word;      
   overflow-wrap: anywhere;
 }
+
+/* BLOG COMMENTS SECTION */
+.comment-section {
+    margin-top: 2rem;
+    font-size: 0.85rem; 
+}
+
+.comment {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.comment-author-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #64a19d;
+}
+
+.comment-author strong {
+    font-size: 0.85rem;
+}
+
+.comment-time {
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.comment-body {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: #444;
+    white-space: pre-line; 
+}
+
+.comment-section textarea::placeholder {
+    font-size: 0.85rem; 
+    color: #888;          
+}
+
+.comment-section textarea {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+}
+
+

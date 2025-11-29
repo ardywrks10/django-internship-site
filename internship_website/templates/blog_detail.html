@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}{{ post.title }}{% endblock %}
+
 {% block content %}
 <section class="projects-section bg-white">
     <div class="container px-4 px-lg-5">
@@ -13,19 +15,21 @@
                             <img class="blog-author-thumb" src="{% static post.author_image %}" alt="{{ post.author_name }}">
                             <span class="fw-bold">{{ post.tag }}</span>
                         </div>
-                        <div class="text-black
-                         blog-time-badge mt-2">
+                        <div class="text-black blog-time-badge mt-2">
                             {{ post.published_at|date:"F j, Y" }}
                         </div>
                     </header>
+
                     <div class="mb-4">
                         <img src="{% static post.image %}" alt="{{ post.title }}" class="img-fluid rounded shadow-sm">
                     </div>
+
                     <div class="blog-detail-body text-black break-content">
                         <p style="white-space: pre-line; text-align: justify;">
                             {{ post.content|safe }}
                         </p>
                     </div>
+
                     <div class="mt-4">
                         <a href="{% url 'public:index' %}#blogs" style="
                             display: inline-flex;
@@ -34,7 +38,7 @@
                             padding: 5px 12px;
                             font-size: 0.8rem;
                             font-weight: 500;
-                            border-radius: 6px;
+                            border-radius: 15px;
                             border: 1px solid #64a19d;
                             background: #64a19d;
                             color: white;
@@ -48,6 +52,59 @@
                         </a>
                     </div>
                 </article>
+                <section class="comment-section mt-5">
+                    <h2 class="h5 mb-3 text-black fw-bold">Comments</h2>
+                    <div class="mb-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ comment_form.content.errors }}
+                            {{ comment_form.content }}
+                            <div class="mt-3">
+                                <button type="submit" style="
+                                    display: inline-flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    padding: 5px 12px;
+                                    font-size: 0.8rem;
+                                    font-weight: 500;
+                                    border-radius: 15px;
+                                    border: 1px solid #64a19d;
+                                    background: #64a19d;
+                                    color: white;
+                                    text-decoration: none;
+                                    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;"
+                                    onmouseover="this.style.background='white'; this.style.color='#64a19d'; this.style.borderColor='#64a19d'; this.style.transform='translateY(-1px)';"
+                                    onmouseout="this.style.background='#64a19d'; this.style.color='white'; this.style.borderColor='#64a19d'; this.style.transform='translateY(0)';"
+                                    >
+                                    Post Comment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-author">
+                                    <img
+                                        src="https://api.dicebear.com/9.x/identicon/svg?seed={{ comment.user.username|urlencode }}"
+                                        alt="{{ comment.user.username }}"
+                                        class="comment-author-img"
+                                    >
+                                    <b>{{ comment.user.username }}</b>
+                                </div>
+                                <span class="comment-time">
+                                    {{ comment.created_at|date:"M d, Y" }}
+                                </span>
+                            </div>
+                            <p class="comment-body">
+                                {{ comment.content }}
+                            </p>
+                        </div>
+                    {% empty %}
+                        <p class="text-muted">No comments yet. Be the first to comment.</p>
+                    {% endfor %}
+                </section>
+                {# ========== END COMMENT SECTION ========== #}
             </div>
         </div>
     </div>
