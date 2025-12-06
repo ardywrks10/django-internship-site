@@ -394,7 +394,7 @@
 }
 
 .blog-title {
-    font-size: 16px;
+    font-size: 0.98rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -409,7 +409,7 @@
 }
 
 .blog-text {
-    font-size: 14px;
+    font-size: 0.78rem;
     color: #6c757d;
     margin-bottom: 0;
 }
@@ -784,4 +784,37 @@
     padding: 0.5rem;
 }
 
+.blog-comment-link {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: #64a19d;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
 
+.blog-comment-link:hover {
+    opacity: 1.2;
+}
+
+.blog-comment-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.85;
+}
+.blog-card {
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.prose-blog {
+    font-size: 0.89rem;     
+}
+
+.opening-text{
+    font-size: 1.1rem;
+}

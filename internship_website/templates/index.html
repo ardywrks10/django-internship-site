@@ -6,11 +6,11 @@
 <header class="headers">
     <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
-            <div class="text-center">
+            <div class="col-lg-8 text-center">
                 <p id="welcomeText" class="text-black mb-4 display-1 typing-text"></p>
-                <h2 class="text-black-50 mx-auto mt-2 mb-5">
-                    This website gives you information about the tech, projects, and blog posts I have worked on and written during my internship.
-                </h2>
+                <p class="text-black-50 mx-auto mt-2 mb-5 opening-text">
+                    This website gives you information about <span style="color: #64a19d;" class="fw-bold">the tech</span>, <span style="color: #64a19d;" class="fw-bold">projects</span>, and <span style="color: #64a19d;" class="fw-bold">blog</span> posts I have worked on and written during my internship.
+                </p>
                 <a class="btn btn-primary fw-bold get-started" href="#blogs">Get Started</a>
             </div>
         </div>
@@ -82,12 +82,11 @@
             <div class="mb-4">
                 <h2 class="text-black mb-4 fw-bold">Latest <span style="color: #64a19d;">Blog</span></h2>
                 <p class="text-black-50">
-                    Here you can find my latest internship updates, brief stories about the projects I’ve worked on, 
-                    the technologies I’ve explored, and the experiences I’ve gained while collaborating with teams.
+                    Here you can find my latest internship updates, brief stories about <b>the projects</b> I’ve worked on, 
+                    <b>technologies</b> I’ve explored, and <b>experiences</b> I’ve gained while collaborating with teams.
                 </p>
             </div>
         </div>
-
         <div class="row gx-4 gx-lg-5">
             {% for post in page_obj %}
             <div class="col-lg-4 col-md-6 col-12 mb-4">
@@ -101,15 +100,23 @@
                             <span class="text-capitalize">{{ post.tag }}</span>
                         </div>
                     </div>
+
                     <div class="blog-content">
-                        <h4 class="blog-title">
+                        <p class="blog-title">
                             <a href="{% url 'public:blog_detail' slug=post.slug %}">
                                 {{ post.title }}
                             </a>
-                        </h4>
+                        </p>
                         <p class="blog-text">
                             {{ post.description }}
                         </p>
+                        <a href="{% url 'public:blog_detail' slug=post.slug %}#comment-section"
+                        class="blog-comment-link">
+                            <img src="{% static 'theme/assets/img/message.png' %}"
+                                alt="Comments"
+                                class="blog-comment-icon">
+                            <span>Post Comment</span>
+                        </a>
                     </div>
                 </article>
             </div>
