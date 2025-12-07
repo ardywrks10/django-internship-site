@@ -818,3 +818,7 @@
 .opening-text{
     font-size: 1.1rem;
 }
+
+.location-txt {
+    font-size: 0.79rem !important;
+}
