@@ -5,45 +5,50 @@ from django.urls import reverse
 
 class BlogPost(models.Model):
     slug = models.SlugField(
-        max_length=200,
-        unique=True,
-        help_text="Slug unik untuk URL, misalnya: penerjunan-magang",)
+        max_length = 200,
+        unique     = True,
+        help_text  = "Slug unik untuk URL, misalnya: penerjunan-magang",)
 
     title = models.CharField(
-        max_length=200,
-        help_text="Judul blog yang tampil di card dan halaman detail.",)
+        max_length = 200,
+        help_text  = "Judul blog yang tampil di card dan halaman detail.",)
 
     description = models.CharField(
-        max_length=255,
-        help_text="Deskripsi singkat untuk card di halaman utama.",)
+        max_length = 255,
+        help_text  = "Deskripsi singkat untuk card di halaman utama.",)
 
     content = models.TextField(
-        help_text="Isi lengkap artikel (boleh beberapa paragraf).",)
+        help_text  = "Isi lengkap artikel (boleh beberapa paragraf).",)
 
     image = models.CharField(
-        max_length=255,
-        help_text="Relative static path, e.g. 'theme/assets/img/blog/1.jpeg'",)
+        max_length = 255,
+        help_text  = "Relative static path, e.g. 'theme/assets/img/blog/1.jpeg'",)
 
     author_name = models.CharField(
-        max_length=100,
-        help_text="Nama penulis, misalnya 'Kusuma'.",)
+        max_length = 100,
+        help_text  = "Nama penulis, misalnya 'Kusuma'.",)
 
-    author_image = models.CharField(
-        max_length=255,
-        blank=True,
-        default="theme/assets/img/blog/b6.jpg",
-        help_text="Relative static path untuk avatar penulis.",)
+    author_image   = models.CharField(
+        max_length = 255,
+        blank      = True,
+        default    = "theme/assets/img/blog/b6.jpg",
+        help_text  = "Relative static path untuk avatar penulis.",)
 
     tag = models.CharField(
-        max_length=100,
-        blank=True,
-        help_text="Tag pendek, misalnya 'By Kusuma'.",)
+        max_length = 100,
+        blank      = True,
+        help_text  = "Tag pendek, misalnya 'By Kusuma'.",)
+    
+    view_count     = models.PositiveIntegerField(
+        default    = 0,
+        help_text  = "Jumlah berapa kali artikel dilihat"
+    )
 
-    published_at = models.DateField(
-        help_text="Tanggal artikel dipublikasikan.",)
+    published_at  = models.DateField(
+        help_text = "Tanggal artikel dipublikasikan.",)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at    = models.DateTimeField(auto_now_add=True)
+    updated_at    = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ["-published_at", "-created_at"]
@@ -55,21 +60,21 @@ class BlogPost(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
-        help_text="User yang memberikan komentar",)
+        on_delete = models.CASCADE,
+        help_text = "User yang memberikan komentar",)
 
     post = models.ForeignKey(
         BlogPost,
-        related_name="comments",
-        on_delete=models.CASCADE,
-        help_text="Post yang dikomentari",)
+        related_name = "comments",
+        on_delete    = models.CASCADE,
+        help_text    = "Post yang dikomentari",)
 
     content = models.TextField(
-        help_text="Isi komentar",)
+        help_text = "Isi komentar",)
 
-    created_at = models.DateTimeField(
-        default=timezone.now,
-        help_text="Waktu ketika komentar dibuat",)
+    created_at    = models.DateTimeField(
+        default   = timezone.now,
+        help_text = "Waktu ketika komentar dibuat",)
 
     class Meta:
         ordering = ["created_at"]

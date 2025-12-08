@@ -13,9 +13,9 @@ class AboutView(LoginRequiredMixin, TemplateView):
 
 def index(request: HttpRequest) -> HttpResponse:
     blog_posts_qs = BlogPost.objects.all()
-    paginator = Paginator(blog_posts_qs, 3)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    paginator     = Paginator(blog_posts_qs, 3)
+    page_number   = request.GET.get("page")
+    page_obj      = paginator.get_page(page_number)
 
     context = {
         "page_obj": page_obj,
@@ -23,11 +23,13 @@ def index(request: HttpRequest) -> HttpResponse:
     }
     return render(request, "index.html", context)
 
-
 def blog_detail(request: HttpRequest, slug: str) -> HttpResponse:
     post = get_object_or_404(BlogPost, slug=slug)
-    comments = post.comments.all()
+    if request.method == "GET":
+        post.view_count += 1
+        post.save(update_fields=["view_count"])
 
+    comments    = post.comments.all()
     pending_key = f"pending_comment_{post.slug}"
 
     if request.method == "GET" and request.user.is_authenticated:

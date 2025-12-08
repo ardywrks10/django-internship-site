@@ -617,13 +617,13 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #9ca3af; /* abu-abu soft */
+    color: #9ca3af; 
     font-size: 0.9rem;
     user-select: none;
 }
 
 .password-wrapper .toggle-eye:hover {
-    color: #64a19d; /* warna teal */
+    color: #64a19d;
 }
 
 /*PROFILE */
@@ -784,13 +784,30 @@
     padding: 0.5rem;
 }
 
+.blog-views {
+    position: absolute;
+    bottom: 40px; 
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem !important;
+    color: #000000;
+    opacity: 1;
+}
+
+.blog-views-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.85;
+}
+
 .blog-comment-link {
     position: absolute;
     bottom: 15px;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.78rem;
+    font-size: 0.68rem !important;
     color: #64a19d;
     text-decoration: none;
     opacity: 1;
@@ -802,13 +819,13 @@
 }
 
 .blog-comment-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     opacity: 0.85;
 }
 .blog-card {
     position: relative;
-    padding-bottom: 32px;
+    padding-bottom: 55px; 
 }
 
 .prose-blog {

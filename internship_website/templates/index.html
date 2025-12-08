@@ -102,16 +102,16 @@
                     </div>
 
                     <div class="blog-content">
-                        <p class="blog-title">
-                            <a href="{% url 'public:blog_detail' slug=post.slug %}">
-                                {{ post.title }}
-                            </a>
-                        </p>
-                        <p class="blog-text">
-                            {{ post.description }}
-                        </p>
+                        <p class="blog-title"><a href="{% url 'public:blog_detail' slug=post.slug %}">{{ post.title }}</a></p>
+                        <p class="blog-text">{{ post.description }}</p>
+                        <div class="blog-views">
+                            <img src="{% static 'theme/assets/img/views.png' %}"
+                                alt="Views"
+                                class="blog-views-icon">
+                            <span>{{ post.view_count }} Views</span>
+                        </div>
                         <a href="{% url 'public:blog_detail' slug=post.slug %}#comment-section"
-                        class="blog-comment-link">
+                            class="blog-comment-link">
                             <img src="{% static 'theme/assets/img/message.png' %}"
                                 alt="Comments"
                                 class="blog-comment-icon">
