@@ -839,3 +839,23 @@
 .location-txt {
     font-size: 0.79rem !important;
 }
+
+/* FOOOTER */
+.footer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-icon img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
